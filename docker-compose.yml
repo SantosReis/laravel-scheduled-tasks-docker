@@ -136,3 +136,13 @@ services:
     entrypoint: ["php", "/var/www/html/artisan"]
     networks:
       - laravel
+
+  cron:
+    build:
+      context: ./dockerfiles
+      dockerfile: cron.dockerfile
+    container_name: cron
+    volumes:
+      - ./src:/var/www/html
+    networks:
+      - laravel
